@@ -1,0 +1,54 @@
+{
+    "name": "maccath/aoc-23",
+    "description": "Advent of Code 2023 - in PHP",
+    "license": "MIT",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Katy Ereira",
+            "email": "katy.ereira@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.3"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.39",
+        "phpunit/phpunit": "^10.5",
+        "slevomat/coding-standard": "^8.14",
+        "squizlabs/php_codesniffer": "^3.7",
+        "vimeo/psalm": "^5.16"
+    },
+    "autoload": {
+        "psr-4": {
+            "Maccath\\Aoc23\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Maccath\\Aoc23\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "ergebnis/composer-normalize": true
+        }
+    },
+    "scripts": {
+        "analyze": "psalm",
+        "fix:all": [
+            "@lint:fix",
+            "composer normalize"
+        ],
+        "lint": "phpcs",
+        "lint:fix": "phpcbf",
+        "test": "phpunit",
+        "test:all": [
+            "@analyze",
+            "@lint",
+            "@test",
+            "composer validate --strict"
+        ]
+    }
+}
